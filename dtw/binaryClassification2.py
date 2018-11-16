@@ -6,6 +6,7 @@ from scipy.spatial.distance import euclidean
 from lib import fastdtw
 from os import listdir
 from os.path import isfile, join
+from plotData import PlotData
 
 class BinaryClassifier(object):
 	def __init__(self, recipe_name, max_line):
@@ -126,3 +127,4 @@ classifier.calculate_error(max_stddev = float(sys.argv[3]))
 classifier.print_result()
 #classifier.print_meal_list()
 #classifier.print_failed_meal_list()
+PlotData.plot_meal(meal_list = classifier.meal_list)
