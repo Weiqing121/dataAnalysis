@@ -8,7 +8,7 @@ from os import listdir
 from os.path import isfile, join
 
 def load_temperature_data(recipe_name, meal_id):
-	temperature_list = open("data/" + str(recipe_name) + "/" + str(meal_id)).readline()[1:][:-2].split(',')
+	temperature_list = open("data/temperatureData" + str(recipe_name) + "/" + str(meal_id)).readline()[1:][:-2].split(',')
 	data_set = []
 	i = 0
 	for temperature in temperature_list:
@@ -37,7 +37,7 @@ def print_result(error, max_stddev = None):
 				print(key, round(error[key], 2), error_stddev)
 
 def get_meal_list(recipe_name):
-	path = "data/" + str(recipe_name) + "/"
+	path = "data/temperatureData" + str(recipe_name) + "/"
 	return [f for f in listdir(path) if isfile(join(path, f))]
 
 def calculate_error(recipe_name, meal_list, if_print_result = True, max_stddev = None):

@@ -4,7 +4,7 @@ import sys
 class PlotData(object):
 	def __init__(self, recipe_name, max_line):
 		self.recipe_name = recipe_name
-		path = "data/" + "temperatureData" + str(self.recipe_name)
+		path = "data/temperatureData" + str(self.recipe_name)
 		self.meal_list = {}
 		self.initial_meal_list(path, max_line)
 		#print(self.meal_list)

@@ -11,7 +11,7 @@ from plotData import PlotData
 class ReviewClassifier(object):
 	def __init__(self, recipe_name, max_line):
 		self.recipe_name = recipe_name
-		path = "data/" + "temperatureData" + str(self.recipe_name)
+		path = "data/temperatureData/" + str(self.recipe_name)
 		self.failed_meal_list = {}
 		self.meal_list = {}
 		self.initial_meal_list(path, max_line)
@@ -43,7 +43,7 @@ class ReviewClassifier(object):
 			self.meal_list[meal_id]["stddev"] = 0
 	
 	def list_failed_meal_id(self, reviews_file):
-		with open(path) as file:
+		with open(reviews_file) as file:
 			i = 0
 			for line in file:
 				print(line)
@@ -54,5 +54,5 @@ class ReviewClassifier(object):
 
 
 classifier = ReviewClassifier(recipe_name = sys.argv[1], max_line = int(sys.argv[2]))
-classifier.generate_failed_list_use_review(reviews_file = "reviews.csv")
+classifier.generate_failed_list_use_review(reviews_file = "data/reviews.csv")
 #PlotData.plot_meal(meal_list = classifier.meal_list, failed_meal_list = classifier.failed_meal_list)

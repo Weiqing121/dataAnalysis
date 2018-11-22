@@ -11,7 +11,7 @@ from plotData import PlotData
 class BinaryClassifier(object):
 	def __init__(self, recipe_name, max_line):
 		self.recipe_name = recipe_name
-		path = "data/" + "temperatureData" + str(self.recipe_name)
+		path = "data/temperatureData/" + str(self.recipe_name)
 		#meal_id_list = [f for f in listdir(path) if isfile(join(path, f))]
 		#meal_id_list = self.initial_meal_id_list(path)
 
@@ -46,7 +46,7 @@ class BinaryClassifier(object):
 			self.meal_list[meal_id]["stddev"] = 0
 
 	def load_temperature_data(self, meal_id):
-		temperature_list = open("data/" + str(self.recipe_name) + "/" + str(meal_id)).readline()[1:][:-2].split(',')
+		temperature_list = open("data/temperatureData" + str(self.recipe_name) + "/" + str(meal_id)).readline()[1:][:-2].split(',')
 		data_set = []
 		i = 0
 		for temperature in temperature_list:
