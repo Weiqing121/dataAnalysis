@@ -11,7 +11,7 @@ from plotData import PlotData
 class BinaryClassifier(object):
 	def __init__(self, recipe_name, max_line):
 		self.recipe_name = recipe_name
-		path = "data/" + str(self.recipe_name)
+		path = "data/" + "temperatureData" + str(self.recipe_name)
 		#meal_id_list = [f for f in listdir(path) if isfile(join(path, f))]
 		#meal_id_list = self.initial_meal_id_list(path)
 
