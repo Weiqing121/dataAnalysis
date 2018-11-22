@@ -25,17 +25,20 @@ class PlotData(object):
 				for temperature in line.split(','):
 					self.meal_list[meal_id]["data"].append([i,round(float(temperature),2)])
 					i += 10
-	def plot_meal(meal_list):
+	def plot_meal(meal_list, failed_meal_list):
 		for meal in meal_list:
-			print(meal)
 			x = []
 			y = []
 			for data in meal_list[meal]["data"]:
 				x.append(data[0])
 				y.append(data[1])
-			plt.plot(x,y)
-		plt.show()
+			plt.plot(x,y, color='aqua')
+		for meal in failed_meal_list:
+			x = []
+			y = []
+			for data in failed_meal_list[meal]["data"]:
+				x.append(data[0])
+				y.append(data[1])
+			plt.plot(x,y, color='coral')
 
-#plot = PlotData(recipe_name = sys.argv[1], max_line = int(sys.argv[2]))
-#plot = TemperaturePlot(recipe_name = sys.argv[1], max_line = 100)
-#plot.PlotData(meal_list = plot.meal_list, meal_id_list = plot.meal_list.keys())
+		plt.show()

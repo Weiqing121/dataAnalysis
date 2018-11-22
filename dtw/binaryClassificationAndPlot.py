@@ -117,7 +117,7 @@ class BinaryClassifier(object):
 				self.meal_list[meal_a]["error"] += distance
 				self.meal_list[meal_b]["error"] += distance
 			self.meal_list[meal_a]["error"] = round(self.meal_list[meal_a]["error"] / (len(self.meal_list) - 1), 2)
-			print("...", meal_a, self.meal_list[meal_a]["error"])
+			print(i, "...", meal_a, self.meal_list[meal_a]["error"])
 
 		if max_stddev is not None:
 			self.identify_outlier(max_stddev)
@@ -125,6 +125,4 @@ class BinaryClassifier(object):
 classifier = BinaryClassifier(recipe_name = sys.argv[1], max_line = int(sys.argv[2]))
 classifier.calculate_error(max_stddev = float(sys.argv[3]))
 classifier.print_result()
-#classifier.print_meal_list()
-#classifier.print_failed_meal_list()
-PlotData.plot_meal(meal_list = classifier.meal_list)
+PlotData.plot_meal(meal_list = classifier.meal_list, failed_meal_list = classifier.failed_meal_list)
